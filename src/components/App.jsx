@@ -10,14 +10,16 @@ import Error404 from './Error404';
 
 export function App(){
   return(
-    <div>
+    <div id="page-container">
       <Header/>
-      <Switch>
-        <Route exact path='/' component={Splash}/>
-        <Route path='/Employee' component={Employee}/>
-        <Route exact path='/Customer' component={Customer}/>
-        <Route component={Error404} />
-      </Switch>
+        <main id="content-wrap">
+          <Switch>
+            <Route exact path='/' component={Splash}/>
+            <Route path='/Employee' component={Employee}/>
+            <Route exact path='/Customer' component={Customer}/>
+            <Route component={Error404} />
+          </Switch>
+        </main>
       <Footer/>
     </div>
   );

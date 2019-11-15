@@ -1,5 +1,5 @@
 import React from 'react';
-import EndlessBeer from '../img/EndlessBeer.gif';
+import EndlessBeer from '../img/EndlessBeerDark.gif';
 import '../css/globalStyles.css';
 
 
@@ -13,7 +13,7 @@ function Splash(){
     }
     var imgStyle = {
         width: "100%",
-        height: "100%"
+        // height: "100%"
     }
   return(
     <div className="fillArea">
