@@ -4,24 +4,31 @@ import '../css/globalStyles.css';
 
 
 function Splash(){
-    var BackgroundStyle = {
-        position: "fixed",
-        top: "0",
-        width: "100%",
-        height: "100%", 
-        zIndex: "-1"
-    }
-    var imgStyle = {
-        width: "100%",
-        // height: "100%"
-    }
+  var BackgroundStyle = {
+    position: 'fixed',
+    top: '0',
+    width: '100%',
+    height: '100%', 
+    zIndex: '-1'
+  };
+  var imgStyle = {
+    width: '100%',
+    // height: "100%"
+  };
+  var splashText = {
+      display: 'flex',
+      alignItems: 'flex-end',
+      marginLeft: '5%',
+      color: 'black'
+  }
   return(
     <div className="fillArea">
-      <div style={BackgroundStyle}>
-        <img style={imgStyle} src={EndlessBeer}></img>
-      </div>
-      <h1>Welcome to the Tap Room!</h1>
-
+        <div style={BackgroundStyle}>
+            <img style={imgStyle} src={EndlessBeer}></img>
+        </div>
+        <div style={splashText}>
+              <h1><strong>Welcome to the Tap Room!</strong></h1>
+        </div>
     </div>  
   );
 }
