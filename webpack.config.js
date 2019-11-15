@@ -32,13 +32,23 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                  {
-                    loader: 'file-loader',
-                  },
-                ],
+                test: /\.(png|gif|jp(e*)g|svg)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8000,
+                        name: 'images/[hash]-[name].[ext]'
+                    }
+                }
             },
+            // {
+            //     test: /\.(png|jpe?g|gif|mp4)$/i,
+            //     use: [
+            //       {
+            //         loader: 'file-loader',
+            //       },
+            //     ],
+            // },
             {
                 test:/\.css$/,
                 use:['style-loader','css-loader']
