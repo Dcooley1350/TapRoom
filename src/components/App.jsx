@@ -12,14 +12,14 @@ function App(){
   return(
     <div id="page-container">
       <Header/>
-      <main id="content-wrap">
+      <div className="fillArea">
         <Switch>
           <Route exact path='/' component={Splash}/>
           <Route path='/Employee' component={Employee}/>
           <Route exact path='/Customer' component={Customer}/>
           <Route component={Error404} />
         </Switch>
-      </main>
+      </div>
       <Footer/>
     </div>
   );

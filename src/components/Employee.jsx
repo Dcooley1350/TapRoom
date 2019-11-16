@@ -1,6 +1,6 @@
 import React from 'react';
 import ManageKegs from '../img/KegManager.jpg';
-import VendBeers from '../img/KegManager.jpg';
+import VendBeers from '../img/VendBeers2.jpg';
 import EmployeeOption from './EmployeeOption';
 import { Column, Row } from 'simple-flexbox';
 
@@ -8,18 +8,18 @@ var employeeOptions = [
   {
     name : 'Manage Kegs',
     description : 'View, Create, Edit, Delete Kegs from your Inventory.',
-    img : {ManageKegs}
+    img : ManageKegs
   },
   {
     name : 'Vend Beers',
     description : 'See your inventory and sling that giggle juice.',
-    img : {VendBeers}
+    img : VendBeers
   }
 ];
 function Employee() {
 
   return (
-      <div className="bubble-background">
+      <div className="fillArea bubble-background">
           <Column flexGrow={1}>
               <Row horizontal='center'>
                     <h1>Welcome Employee</h1>

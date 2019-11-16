@@ -1,5 +1,5 @@
 .fillArea {
-    height: 100%;
+    min-height: 90vh;
     width: 100%;
 }
 

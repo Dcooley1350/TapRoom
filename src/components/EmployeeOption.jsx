@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function EmployeeOption (props) {
   var imgStyle = {
     height: '250',
-    width: '100%'
+    width: '450'
 
   };
   var optionCardStyle = {
