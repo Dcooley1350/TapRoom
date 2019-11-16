@@ -1,7 +1,7 @@
 import React from 'react';
 import ManageKegs from '../img/KegManager.jpg';
 import VendBeers from '../img/VendBeers2.jpg';
-import EmployeeOption from './EmployeeOption';
+import Option from './Option';
 import { Column, Row } from 'simple-flexbox';
 
 var employeeOptions = [
@@ -19,22 +19,22 @@ var employeeOptions = [
 function Employee() {
 
   return (
-      <div className="fillArea bubble-background">
-          <Column flexGrow={1}>
-              <Row horizontal='center'>
-                    <h1>Welcome Employee</h1>
-              </Row>
-              <Row vertical='center'>
-                {employeeOptions.map((option, index) =>
-                <EmployeeOption
-                    name={option.name}
-                    description={option.description}
-                    img={option.img}
-                    key={index}/>
-                )};        
-              </Row>    
-          </Column>
-      </div>
+    <div className="fillArea bubble-background">
+      <Column flexGrow={1}>
+        <Row horizontal='center'>
+          <h1>Welcome Employee</h1>
+        </Row>
+        <Row vertical='center'>
+          {employeeOptions.map((option, index) =>
+            <Option
+              name={option.name}
+              description={option.description}
+              img={option.img}
+              key={index}/>
+          )};        
+        </Row>    
+      </Column>
+    </div>
   );
 }
 
