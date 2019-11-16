@@ -16,19 +16,19 @@ function Splash(){
     // height: "100%"
   };
   var splashText = {
-      display: 'flex',
-      alignItems: 'flex-end',
-      marginLeft: '5%',
-      color: 'black'
-  }
+    color: 'black',
+    marginLeft: '5%',
+    display: 'flex',
+    alignItems: 'flex-end',
+  };    
   return(
     <div className="fillArea">
-        <div style={BackgroundStyle}>
-            <img style={imgStyle} src={EndlessBeer}></img>
-        </div>
-        <div style={splashText}>
-              <h1><strong>Welcome to the Tap Room!</strong></h1>
-        </div>
+      <div style={BackgroundStyle}>
+        <img style={imgStyle} src={EndlessBeer}></img>
+      </div>
+      <div style={splashText}>
+        <h1><strong>Welcome to the Tap Room!</strong></h1>
+      </div>
     </div>  
   );
 }

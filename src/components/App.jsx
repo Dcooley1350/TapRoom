@@ -8,7 +8,7 @@ import Customer from './Customer';
 import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
 
-export function App(){
+function App(){
   return(
     <div id="page-container">
       <Header/>

@@ -24,6 +24,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.0.0",
+    "simple-flexbox": "^2.3.0",
     "styled-jsx": "^3.2.4"
   },
   "devDependencies": {

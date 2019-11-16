@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function Error404(props){
   return (
-    <div>
+    <div className="container center">
       <img src={HackieChan}></img>
       <h2>WHOOPS {props.location.pathname} NO EXIST!</h2>
       <h3>Back to <Link to='/'>HOME</Link></h3>
