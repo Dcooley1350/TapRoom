@@ -9,6 +9,7 @@
 _The purpose of this application is to allow a TapRoom employeed to manage sales and keg usage, while on the customer side allowing the user to browse and compare beers._  
 
 ## Specifications
+![project map](TapRoom.jpg "TapRoom Map")
 * #### Authentication
 | Spec                      |Input          | Output |
 |:---------------------------|:-------------|:------|
