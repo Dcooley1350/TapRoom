@@ -6,12 +6,11 @@ class MainBeerMenu extends React.Component {
   constructor(props){
     super(props);
     this.state= {
-      masterKegList = {},
+      masterKegList: {},
       selectedKeg: null
     };
     this.handleNewKeg = this.handleNewKeg.bind(this);
   }
-  
 
 
   render(props) {

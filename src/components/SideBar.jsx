@@ -7,10 +7,18 @@ const SideNav = (props) => {
         height: '100%',
         backgroundColor: '#ececeb'
     }
+    function ConditionalTitleRender() {
+        if(this.props.currentRouterPath === '/employee'){
+            <p>Welcome Employee</p>
+        }
+        else if(this.props.currentRouterPath === '/customer'){
+            <p>Welcome Customer</p>
+        }
+    }
     return ( 
         <div style={sideNavStyle}>
-            <p>Welcome Employee/Customer</p>
-            <KegDetails />
+            {ConditionalTitleRender()}
+            <KegDetails selectedKeg={this.props.selectedKeg} currentRouterPath={this.props.currentRouterPath}/>
         </div>
      );
 }
