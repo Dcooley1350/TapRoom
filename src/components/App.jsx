@@ -14,8 +14,8 @@ function App(){
       <main id="content-wrap" className="fillArea">
         <Switch>
           <Route exact path='/' component={Splash}/>
-          <Route path='/Employee' component={MainBeerMenu}/>
-          <Route exact path='/Customer' component={MainBeerMenu}/>
+          <Route path='/Employee' render={(props) => <MainBeerMenu currentRouterPath={props.location.path}/>}/>
+          <Route exact path='/Customer' render={(props) => <MainBeerMenu currentRouterPath={props.location.path}/>}/>
           <Route component={Error404} />
         </Switch>
       </main>
