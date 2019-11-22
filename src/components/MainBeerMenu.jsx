@@ -11,15 +11,17 @@ class MainBeerMenu extends React.Component {
     };
     this.handleNewKeg = this.handleNewKeg.bind(this);
   }
+  
 
 
-  render() {
+  render(props) {
     <div className='row'>
       <div className ='col l2'>
-        <SideBar kegList={this.state.kegList} selectedKeg={this.state.selectedKeg}/>
+        <SideBar kegList={this.state.kegList} selectedKeg={this.state.selectedKeg}
+        currentRouterPath={props.currentRouterPath}/>
       </div>
       <div className="col l10 fillArea bubble-background">
-        <KegList kegList={this.state.masterKegList}/>
+        <KegList kegList={this.state.masterKegList} currentRouterPath={props.currentRouterPath}/>
       </div>
     </div>
 
