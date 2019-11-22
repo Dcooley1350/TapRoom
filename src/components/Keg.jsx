@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 function Option (props) {
   var imgStyle = {
-    height: '250',
-    width: '450'
-
+    height: '',
+    minWidth: '100',
+    maxWidth: '200'
   };
   var optionCardStyle = {
     borderRadius: '25px',

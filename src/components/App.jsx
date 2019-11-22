@@ -7,15 +7,16 @@ import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
 import MainBeerMenu from './MainBeerMenu';
 
-function App(){
+function App(props){
+
   return(
     <div id="page-container">
       <Header/>
       <main id="content-wrap" className="fillArea">
         <Switch>
           <Route exact path='/' component={Splash}/>
-          <Route path='/Employee' render={(props) => <MainBeerMenu currentRouterPath={props.location.path}/>}/>
-          <Route exact path='/Customer' render={(props) => <MainBeerMenu currentRouterPath={props.location.path}/>}/>
+          <Route path='/Employee' render={(props) => <MainBeerMenu currentRouterPath='/Employee'/>}/>
+          <Route exact path='/Customer' render={(props) => <MainBeerMenu currentRouterPath='/Customer'/>}/>
           <Route component={Error404} />
         </Switch>
       </main>

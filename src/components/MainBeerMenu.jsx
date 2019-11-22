@@ -45,29 +45,40 @@ class MainBeerMenu extends React.Component {
     this.setState({masterKegList: tempKegList});
   }
   handleSelectingKeg(kegId){
-    this.setState({selectedKeg: kegId})
+    this.setState({selectedKeg: kegId});
   }
   ConditionalSelectedTicket(){
     if(this.state.selectedKeg != null){
-      <SideBar kegList={this.state.masterKegList} selectedKeg={this.state.masterKegList[this.state.selectedKeg]} currentRouterPath={props.currentRouterPath}/>
+      console.log("if")
+      return(
+        <SideBar kegList={this.state.masterKegList} selectedKeg={this.state.masterKegList[this.state.selectedKeg]} currentRouterPath={props.currentRouterPath}/>
+      )
     }
     else {
-      <SideBar kegList={this.state.masterKegList} currentRouterPath={props.currentRouterPath}/>
+      console.log(this.props.currentRouterPath)
+      return(
+        <SideBar kegList={this.state.masterKegList} currentRouterPath={this.props.currentRouterPath}/>
+      )
     }
   }
-
-
-  render(props) {
-    <div className='row'>
-      <div className ='col l2'>
+  
+  render() {
+    const fillWholeHeight= {
+      minHeight: '90vh',
+      marginBottom: '0px'
+    }
+    return(
+      <div style={fillWholeHeight} className='row'>
+      <div className =' col l2'>
         {this.ConditionalSelectedTicket()}
       </div>
-      <div className="col l10 fillArea bubble-background">
-        <KegList kegList={this.state.masterKegList} currentRouterPath={props.currentRouterPath} onSelectingKeg={this.handleSelectingKeg}/>
+      <div style={fillWholeHeight} className="col l10 bubble-background">
+        <KegList kegList={this.state.masterKegList} currentRouterPath={this.props.currentRouterPath} onSelectingKeg={this.handleSelectingKeg}/>
       </div>
     </div>
+    )
 
-  };
+  }
 }
 
 export default MainBeerMenu;
