@@ -20,7 +20,8 @@ function KegList(props) {
       dateTapped
       img={keg.img}
       contents={keg.contents}
-      key={keg.id}/>
+      key={keg.id}
+      onSelectingKeg={this.onSelectingKeg}/>
       )})};        
     </div>
   );

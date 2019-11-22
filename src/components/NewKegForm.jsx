@@ -11,7 +11,7 @@ const NewKegForm = (props) => {
     let _img = null;
     const handleSubmission = (event) => {
         event.preventDefault();
-        props.onKegCreation({name: _name.value, type:_type.value, brewer: _brewer, _description: _description.value, dateTapped: _dateTapped.value, img: _img.value, id: v4() });
+        props.onKegCreation({name: _name.value, type:_type.value, brewer: _brewer, description: _description.value, dateTapped: _dateTapped.value, img: _img.value, id: v4() });
         _name = '';
         _description = '';
         _type = '';
