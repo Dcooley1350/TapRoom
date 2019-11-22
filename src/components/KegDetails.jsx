@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const KegDetails = (props) => {
     function RouteConditionalButtons () {
         if(this.props.currentRouterPath === '/employee'){
-            return(<EmployeeButtons />)
+            return(<EmployeeButtons onDecrimentingKeg={props.onDecrimentingKeg} onReplacingKeg={props.onReplacingkeg} />)
         }
     }
     return (  
@@ -16,6 +16,7 @@ const KegDetails = (props) => {
             <p>{this.props.selectedKeg.description}</p>
             <p>{this.props.selectedKeg.dateTapped}</p>
             <p>{this.props.selectedKeg.img}</p>
+            {RouteConditionalButtons}
         </div>
     );
 }
