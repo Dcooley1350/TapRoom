@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import KegDetails from './KegDetails'
 
 const SideNav = (props) => {
     const sideNavStyle= {
@@ -8,7 +9,8 @@ const SideNav = (props) => {
     }
     return ( 
         <div style={sideNavStyle}>
-            
+            <p>Welcome Employee/Customer</p>
+            <KegDetails />
         </div>
      );
 }

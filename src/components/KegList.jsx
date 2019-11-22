@@ -3,24 +3,26 @@ import Keg from './Keg';
 
 
 
-function Employee() {
+function KegList(props) {
   const flexStyle={
     display: 'flex',
     justifyContent: 'space-between'
   }
   return (
     <div style={flexStyle}>
-      {MasterKegList.map((keg) =>
+      {props.kegList.map((keg) =>
       <Keg
       name={keg.name}
       type={keg.type}
       brewer={brewer}
       description={keg.description}
+      dateTapped
       img={keg.img}
-      key={index}/>
+      contents={keg.contents}
+      key={keg.id}/>
       )};        
     </div>
   );
 }
 
-export default Employee;
+export default KegList;

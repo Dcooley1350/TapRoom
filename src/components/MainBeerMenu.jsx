@@ -1,19 +1,29 @@
 import React from 'react';
-import BeerList from './BeerList';
+import KegList from './KegList';
 import SideBar from './SideBar';
 
-function MainBeerMenu() {
+class MainBeerMenu extends React.Component {
+  constructor(props){
+    super(props);
+    this.state= {
+      masterKegList = {},
+      selectedKeg: null
+    };
+    this.handleNewKeg = this.handleNewKeg.bind(this);
+  }
 
-  return (
+
+  render() {
     <div className='row'>
       <div className ='col l2'>
-        <SideBar />
+        <SideBar kegList={this.state.kegList} selectedKeg={this.state.selectedKeg}/>
       </div>
       <div className="col l10 fillArea bubble-background">
-        <BeerList />
+        <KegList kegList={this.state.masterKegList}/>
       </div>
     </div>
-  );
+
+  };
 }
 
 export default MainBeerMenu;
