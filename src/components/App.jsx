@@ -3,20 +3,19 @@ import '../css/globalStyles.css';
 import Header from './Header';
 import Footer from './Footer';
 import Splash from './Splash';
-import Employee from './Employee';
-import Customer from './Customer';
 import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
+import MainBeerMenu from './MainBeerMenu';
 
 function App(){
   return(
     <div id="page-container">
       <Header/>
-      <main className="fillArea">
+      <main id="content-wrap" className="fillArea">
         <Switch>
           <Route exact path='/' component={Splash}/>
-          <Route path='/Employee' component={Employee}/>
-          <Route exact path='/Customer' component={Customer}/>
+          <Route path='/Employee' component={MainBeerMenu}/>
+          <Route exact path='/Customer' component={MainBeerMenu}/>
           <Route component={Error404} />
         </Switch>
       </main>

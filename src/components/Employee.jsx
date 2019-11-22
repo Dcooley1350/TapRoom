@@ -1,39 +1,24 @@
 import React from 'react';
-import ManageKegs from '../img/KegManager.jpg';
-import VendBeers from '../img/VendBeers2.jpg';
-import Option from './Option';
-import { Column, Row } from 'simple-flexbox';
+import Keg from './Keg';
 
-var employeeOptions = [
-  {
-    name : 'Manage Kegs',
-    description : 'View, Create, Edit, Delete Kegs from your Inventory.',
-    img : ManageKegs
-  },
-  {
-    name : 'Vend Beers',
-    description : 'See your inventory and sling that giggle juice.',
-    img : VendBeers
-  }
-];
+
+
 function Employee() {
-
+  const flexStyle={
+    display: 'flex',
+    justifyContent: 'space-between'
+  }
   return (
-    <div className="fillArea bubble-background">
-      <Column flexGrow={1}>
-        <Row horizontal='center'>
-          <h1>Welcome Employee</h1>
-        </Row>
-        <Row vertical='center'>
-          {employeeOptions.map((option, index) =>
-            <Option
-              name={option.name}
-              description={option.description}
-              img={option.img}
-              key={index}/>
-          )};        
-        </Row>    
-      </Column>
+    <div style={flexStyle}>
+      {MasterKegList.map((keg) =>
+      <Keg
+      name={keg.name}
+      type={keg.type}
+      brewer={brewer}
+      description={keg.description}
+      img={keg.img}
+      key={index}/>
+      )};        
     </div>
   );
 }
