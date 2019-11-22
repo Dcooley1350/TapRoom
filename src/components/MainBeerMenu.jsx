@@ -6,7 +6,7 @@ class MainBeerMenu extends React.Component {
   constructor(props){
     super(props);
     this.state= {
-      selectedKeg: '',
+      selectedKeg: null,
       masterKegList: {
         'a51a5c6a-f650-4819-8c6a-ee4fa6632256' : {
           name: 'Milwaukies Best',
@@ -32,27 +32,38 @@ class MainBeerMenu extends React.Component {
           description: 'This beer is great. Drink it with your friends. Drink it alone.',
           dateTapped: '01/21/2019',
           img: './thisimagethisimage.jpg'
-
         }
 
       },
       selectedKeg: null
     };
     this.handleNewKeg = this.handleNewKeg.bind(this);
+    this.handleSelectingKeg = this.handleSelectingKeg.bind(this);
   }
-  handleNewKeg(){
-
+  handleNewKeg(newKeg){
+    var tempKegList = Object.assign({}, this.state.masterKegList,{ [newKeg.id]: newKeg});
+    this.setState({masterKegList: tempKegList});
+  }
+  handleSelectingKeg(kegId){
+    this.setState({selectedKeg: kegId})
+  }
+  ConditionalSelectedTicket(){
+    if(this.state.selectedKeg != null){
+      <SideBar kegList={this.state.masterKegList} selectedKeg={this.state.masterKegList[this.state.selectedKeg]} currentRouterPath={props.currentRouterPath}/>
+    }
+    else {
+      <SideBar kegList={this.state.masterKegList} currentRouterPath={props.currentRouterPath}/>
+    }
   }
 
 
   render(props) {
     <div className='row'>
       <div className ='col l2'>
-        <SideBar kegList={this.state.kegList} selectedKeg={this.state.selectedKeg}
-        currentRouterPath={props.currentRouterPath}/>
+        {this.ConditionalSelectedTicket()}
       </div>
       <div className="col l10 fillArea bubble-background">
-        <KegList kegList={this.state.masterKegList} currentRouterPath={props.currentRouterPath}/>
+        <KegList kegList={this.state.masterKegList} currentRouterPath={props.currentRouterPath} onSelectingKeg={this.handleSelectingKeg}/>
       </div>
     </div>
 
