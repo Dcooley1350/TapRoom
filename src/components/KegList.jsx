@@ -10,7 +10,8 @@ function KegList(props) {
   }
   return (
     <div style={flexStyle}>
-      {props.kegList.map((keg) =>
+      {Object.keys(props.kegList).map((kegId) => { const keg = props.kegList[kegId];
+      return(
       <Keg
       name={keg.name}
       type={keg.type}
@@ -20,7 +21,7 @@ function KegList(props) {
       img={keg.img}
       contents={keg.contents}
       key={keg.id}/>
-      )};        
+      )})};        
     </div>
   );
 }
