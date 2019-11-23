@@ -15,16 +15,15 @@ function Keg (props) {
     width: '250',
     
   };
-  console.log(props.kegId);
 
   return(
     
-      <div onClick={() => {props.onSelectingKeg(props.kegId);}} style={kegCardStyle} className="center container">
-        <h4>{props.name}</h4>
-        <h5>{props.brewer}</h5>
-        <img style={imgStyle} src={props.img}></img>
+    <div onClick={() => {props.onSelectingKeg(props.kegId);}} style={kegCardStyle} className="center container">
+      <h4>{props.name}</h4>
+      <h5>{props.brewer}</h5>
+      <img style={imgStyle} src={props.img}></img>
         
-      </div>
+    </div>
     
   );
 }

@@ -9,7 +9,6 @@ function KegList(props) {
     justifyContent: 'space-between',
     flexWrap: 'wrap'
   };
-  console.log(props.kegList)
   return (
     <div style={flexStyle}>
       {Object.keys(props.kegList).map((kegId) => { const keg = props.kegList[kegId];

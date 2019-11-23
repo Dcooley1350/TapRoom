@@ -4,10 +4,10 @@ import EmployeeButtons from './EmployeeButtons';
 
 const KegDetails = (props) => {
   let routeConditionalButtons = null;
-  console.log(props.currentRouterPath)
-    if(props.currentRouterPath === '/Employee'){
-      routeConditionalButtons = <EmployeeButtons onDecrimentingKeg={props.onDecrimentingKeg} onReplacingKeg={props.onReplacingkeg} />
-    }
+  if(props.currentRouterPath === '/Employee'){
+    console.log(props.onReplacingKeg);
+    routeConditionalButtons = <EmployeeButtons onDecrimentingKeg={props.onDecrimentingKeg} onReplacingKeg={props.onReplacingKeg} />;
+  }
   
   return (  
     <div>

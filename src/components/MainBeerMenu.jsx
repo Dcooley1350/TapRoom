@@ -1,12 +1,14 @@
 import React from 'react';
 import KegList from './KegList';
-import SideBar from './SideBar';
+import SideNav from './SideNav';
+import NewKegForm from './NewKegForm';
 
 class MainBeerMenu extends React.Component {
   constructor(props){
     super(props);
     this.state= {
       selectedKeg: null,
+      addKegVisible: false,
       masterKegList: {
         'a51a5c6a-f650-4819-8c6a-ee4fa6632256' : {
           name: 'Milwaukies Best',
@@ -41,11 +43,29 @@ class MainBeerMenu extends React.Component {
         }
 
       },
-      selectedKeg: null
     };
     this.handleNewKeg = this.handleNewKeg.bind(this);
     this.handleSelectingKeg = this.handleSelectingKeg.bind(this);
+    this.handleDecrimentingKeg = this.handleDecrimentingKeg.bind(this);
+    this.handleReplacingKeg = this.handleReplacingKeg.bind(this);
+    this.handleTogglingNewKegForm = this.handleTogglingNewKegForm.bind(this);
   }
+  handleTogglingNewKegForm(){
+    let kegFormState = this.state.addKegVisible;
+    kegFormState = !kegformState;
+    this.setState({addKegVisible: kegFormState});
+  }
+  handleReplacingKeg(){
+    let foundKeg = this.state.masterKegList[this.state.selectedKeg];
+    foundKeg.contents = 1000;
+    this.setState();
+  }
+  handleDecrimentingKeg(){
+    let foundKeg = this.state.masterKegList[this.state.selectedKeg];
+    foundKeg.contents--;
+    this.setState();
+  }
+
   handleNewKeg(newKeg){
     var tempKegList = Object.assign({}, this.state.masterKegList,{ [newKeg.id]: newKeg});
     this.setState({masterKegList: tempKegList});
@@ -53,35 +73,36 @@ class MainBeerMenu extends React.Component {
   handleSelectingKeg(kegId){
     this.setState({selectedKeg: kegId});
   }
-  ConditionalSelectedTicket(){
+  ConditionalSelectedKeg(){
     if(this.state.selectedKeg != null){
+
       return(
-        <SideBar kegList={this.state.masterKegList} selectedKeg={this.state.masterKegList[this.state.selectedKeg]} currentRouterPath={this.props.currentRouterPath}/>
-      )
+        <SideNav kegList={this.state.masterKegList} selectedKeg={this.state.masterKegList[this.state.selectedKeg]} onDecrimentingKeg={this.handleDecrimentingKeg} onReplacingKeg={this.handleReplacingKeg} currentRouterPath={this.props.currentRouterPath} onTogglingNewKegForm={this.handleTogglingNewKegForm} newKegShowing={this.state.addKegVisible}/>
+      );
     }
     else {
       return(
-        <SideBar kegList={this.state.masterKegList} currentRouterPath={this.props.currentRouterPath}/>
-      )
+        <SideNav kegList={this.state.masterKegList} currentRouterPath={this.props.currentRouterPath}/>
+      );
     }
   }
-  
+
   render() {
     const lStyle= {
       minHeight: '90vh',
       marginBottom: '0px',
-    }
+    };
 
     return(
       <div style={lStyle} className='row'>
-      <div style={lStyle} className =' col l2'>
-        {this.ConditionalSelectedTicket()}
+        <div style={lStyle} className =' col l2'>
+          {this.ConditionalSelectedKeg()}
+        </div>
+        <div style={lStyle} className="col l10 bubble-background">
+          {this.state.addkegVisible ? <NewKegForm onNewKeg={this.handleNewKeg} toggleNewKeg={this.handleTogglingNewKegForm} /> : <KegList kegList={this.state.masterKegList} onSelectingKeg={this.handleSelectingKeg}/>}
+        </div>
       </div>
-      <div style={lStyle} className="col l10 bubble-background">
-        <KegList kegList={this.state.masterKegList} currentRouterPath={this.props.currentRouterPath} onSelectingKeg={this.handleSelectingKeg}/>
-      </div>
-    </div>
-    )
+    );
 
   }
 }
