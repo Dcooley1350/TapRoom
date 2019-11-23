@@ -1,22 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import EmployeeButtons from './EmployeeButtons';
 
 const KegDetails = (props) => {
-  function RouteConditionalButtons () {
-    if(this.props.currentRouterPath === '/employee'){
-      return(<EmployeeButtons onDecrimentingKeg={props.onDecrimentingKeg} onReplacingKeg={props.onReplacingkeg} />);
+  let routeConditionalButtons = null;
+  console.log(props.currentRouterPath)
+    if(props.currentRouterPath === '/Employee'){
+      routeConditionalButtons = <EmployeeButtons onDecrimentingKeg={props.onDecrimentingKeg} onReplacingKeg={props.onReplacingkeg} />
     }
-  }
+  
   return (  
     <div>
       <p>Keg Details</p>
-      <p>{props.selectedKeg.name}</p>
-      <p>{props.selectedKeg.type}</p>
-      <p>{props.selectedKeg.brewer}</p>
+      <p><strong>{props.selectedKeg.name}</strong></p>
+      <p>Type:{props.selectedKeg.type}</p>
+      <p>%: {props.selectedKeg.alcohol}</p>
+      <p>By: {props.selectedKeg.brewer}</p>
       <p>{props.selectedKeg.description}</p>
-      <p>{props.selectedKeg.dateTapped}</p>
+      <p>Date Tapped: {props.selectedKeg.dateTapped}</p>
+      <p>Remaining Contents: {props.selectedKeg.contents}</p>
       <p>{props.selectedKeg.img}</p>
-      {RouteConditionalButtons}
+      {routeConditionalButtons}
     </div>
   );
 };

@@ -17,7 +17,7 @@ const SideNav = (props) => {
     }
   
     if(props.selectedKeg != null) {
-        details= <KegDetails selectedKeg={props.selectedKeg} />
+        details= <KegDetails selectedKeg={props.selectedKeg} currentRouterPath={props.currentRouterPath}/>
     } else {
         details = <p>Select a keg to see details!</p>
     }

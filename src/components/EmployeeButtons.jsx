@@ -1,11 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const EmployeeButtons = (props) => {
+    const divStyle = {
+        marginBottom: '0',
+    }
+    const buttonStyle = {
+        width: '100%',
+        backgroundColor: '#10316b',
+        margin: '3'
+    }
   return (
-    <div>
-      <button onClick={props.onDecrimentingKeg} className="button btn-small">Vend 1</button> 
-      <button onClick={props.onReplacingKeg} className="button btn-small">Replace Keg</button> 
+    <div style={divStyle}>
+      <button onClick={props.onDecrimentingKeg} style={buttonStyle}className="button btn-small">Vend 1</button> 
+      <button onClick={props.onReplacingKeg} style={buttonStyle}className="button btn-small">Replace Keg</button>
+      <Link to='/NewKeg'><button style={buttonStyle}className="button btn-small">Add New Keg</button></Link>
+
     </div>
   // <button onClick={props.onEditKeg} className="butto btn-small">Edit Keg</button> 
   // <button onClick={props.onDeleteKeg} className="btn-small button">Remove Keg</button> 

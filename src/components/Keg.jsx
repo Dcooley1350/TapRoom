@@ -21,11 +21,8 @@ function Keg (props) {
     
       <div onClick={() => {props.onSelectingKeg(props.kegId);}} style={kegCardStyle} className="center container">
         <h4>{props.name}</h4>
+        <h5>{props.brewer}</h5>
         <img style={imgStyle} src={props.img}></img>
-        <p>{props.description}</p>
-        <p>{props.alcohol}</p>
-        <p>{props.contents}</p>
-        <p>{props.description}</p>
         
       </div>
     
