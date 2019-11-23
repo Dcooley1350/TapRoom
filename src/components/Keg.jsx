@@ -13,6 +13,8 @@ function Keg (props) {
     padding: '20',
     height: '300',
     width: '250',
+    marginTop: '10px',
+    marginBottom: '10px'
     
   };
 

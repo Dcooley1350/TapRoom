@@ -5,9 +5,16 @@ import KegDetails from './KegDetails';
 const SideNav = (props) => {
   let greeting = null;
   let details = null;
+  let newKegButton = null;
   const sideNavStyle= {
     height: '100%',
-    backgroundColor: '#ececeb'
+    backgroundColor: '#ececeb',
+    width: '100%'
+  };
+  const buttonStyle = {
+    width: '100%',
+    backgroundColor: '#e25822',
+    margin: '3px'
   };
   if(props.currentRouterPath === '/Employee'){
     greeting = <p>Welcome Employee</p>;
@@ -16,17 +23,21 @@ const SideNav = (props) => {
     greeting= <p>Welcome Customer</p>;
   }
   
-  console.log(props.onReplacingKeg);
   if(props.selectedKeg != null) {
     details= <KegDetails selectedKeg={props.selectedKeg} onDecrimentingKeg={props.onDecrimentingKeg} onReplacingKeg={props.onReplacingKeg} currentRouterPath={props.currentRouterPath}/>;
   } else {
     details = <p>Select a keg to see details!</p>;
   }
-  
+  if(props.currentRouterPath==='/Employee'){
+    if(!props.newKegShowing) {
+      newKegButton = <button onClick={()=> {props.onTogglingNewKegForm();}}className='button btn-large' style={buttonStyle}>Add Keg</button>
+    } else { newKegButton = <button onClick={() => { props.onTogglingNewKegForm(); }} className='button btn-large' style={buttonStyle}>Keg List</button> }
+  }
   return ( 
     <div style={sideNavStyle}>
-      {greeting}
-      {details}
+      {greeting}<br/>
+      {details}<br/>
+      <div>{newKegButton}</div>
     </div>
   );
 };

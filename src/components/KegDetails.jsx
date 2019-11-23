@@ -5,7 +5,6 @@ import EmployeeButtons from './EmployeeButtons';
 const KegDetails = (props) => {
   let routeConditionalButtons = null;
   if(props.currentRouterPath === '/Employee'){
-    console.log(props.onReplacingKeg);
     routeConditionalButtons = <EmployeeButtons onDecrimentingKeg={props.onDecrimentingKeg} onReplacingKeg={props.onReplacingKeg} />;
   }
   

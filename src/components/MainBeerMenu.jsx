@@ -52,7 +52,7 @@ class MainBeerMenu extends React.Component {
   }
   handleTogglingNewKegForm(){
     let kegFormState = this.state.addKegVisible;
-    kegFormState = !kegformState;
+    kegFormState = !kegFormState;
     this.setState({addKegVisible: kegFormState});
   }
   handleReplacingKeg(){
@@ -75,14 +75,13 @@ class MainBeerMenu extends React.Component {
   }
   ConditionalSelectedKeg(){
     if(this.state.selectedKeg != null){
-
       return(
         <SideNav kegList={this.state.masterKegList} selectedKeg={this.state.masterKegList[this.state.selectedKeg]} onDecrimentingKeg={this.handleDecrimentingKeg} onReplacingKeg={this.handleReplacingKeg} currentRouterPath={this.props.currentRouterPath} onTogglingNewKegForm={this.handleTogglingNewKegForm} newKegShowing={this.state.addKegVisible}/>
       );
     }
     else {
       return(
-        <SideNav kegList={this.state.masterKegList} currentRouterPath={this.props.currentRouterPath}/>
+        <SideNav kegList={this.state.masterKegList} currentRouterPath={this.props.currentRouterPath} onTogglingNewKegForm={this.handleTogglingNewKegForm} newKegShowing={this.state.addKegVisible}/>
       );
     }
   }
@@ -92,14 +91,17 @@ class MainBeerMenu extends React.Component {
       minHeight: '90vh',
       marginBottom: '0px',
     };
+    const l2Style={
+      backgroundColor: '#ececeb',
+    };
 
     return(
       <div style={lStyle} className='row'>
-        <div style={lStyle} className =' col l2'>
+        <div style={l2Style} className =' col l2'>
           {this.ConditionalSelectedKeg()}
         </div>
         <div style={lStyle} className="col l10 bubble-background">
-          {this.state.addkegVisible ? <NewKegForm onNewKeg={this.handleNewKeg} toggleNewKeg={this.handleTogglingNewKegForm} /> : <KegList kegList={this.state.masterKegList} onSelectingKeg={this.handleSelectingKeg}/>}
+          {this.state.addKegVisible ? <NewKegForm onNewKeg={this.handleNewKeg} onTogglingNewKegForm={this.handleTogglingNewKegForm} /> : <KegList kegList={this.state.masterKegList} onSelectingKeg={this.handleSelectingKeg}/>}
         </div>
       </div>
     );

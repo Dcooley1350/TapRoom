@@ -3,6 +3,19 @@ import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
 const NewKegForm = (props) => {
+  const kegFormCardStyle={
+    backgroundColor: '#ececeb',
+    height: '100%',
+    marginBottom: '5px'
+  };
+  const buttonStyle = {
+    marginBottom: '5px',
+    width: '100%',
+    backgroundColor: '#e25822'
+  };
+  const titleStyle = {
+    marginTop: '5px',
+  };
   let _name = null;
   let _type = null;
   let _brewer = null;
@@ -11,8 +24,10 @@ const NewKegForm = (props) => {
   let _dateTapped = null;
   let _img = null;
   const handleSubmission = (event) => {
+
     event.preventDefault();
-    props.onKegCreation({name: _name.value, type:_type.value, alcohol: _alcohol.value, brewer: _brewer, description: _description.value, contents: 1000, dateTapped: _dateTapped.value, img: _img.value, id: v4() });
+    props.onNewKeg({name: _name.value, type:_type.value, alcohol: _alcohol.value, brewer: _brewer.value, description: _description.value, contents: 1000, dateTapped: _dateTapped.value, img: _img.value, id: v4() });
+    props.onTogglingNewKegForm();
     _name = '';
     _description = '';
     _type = '';
@@ -22,22 +37,31 @@ const NewKegForm = (props) => {
     _img = '';    
   };
   return (
-    <div>
-      <form onSubmit={handleSubmission}>
-        <label for='name'>Beer Name:</label>
-        <input type='text' id='name' placeholder='name' ref={(input) => {_name=input;}}/>
-        <label for='brewer'>Brewer:</label>
-        <input type='text' id='brewer' placeholder='brewer' ref={(input) => {_brewer=input;}}/>
-        <label for='type'>Type:</label>
-        <input type='text' id='type' placeholder='type' ref={(input) => {_type=input;}}/>
-        <label for='alcohol'>Alcohol%</label>
-        <input type='number' id='alcohol' placeholder='alcohol' ref={(input) => {_alcohol=input;}}/>
-        <label for='description'>Description:</label>
-        <input type='text' id='description' placeholder='description' ref={(input) => {_description=input;}}/>
-        <label for='description'>Date Added:</label>
-        <input type='date' id='date' placeholder='date' ref={(input) => {_dateTapped=input;}}/>
-        <label for='img'>Add Image:</label>
-        <input type='text' id='img' placeholder='image url' ref={(input) => {_img=input;}}/>
+    <div className='card' style={kegFormCardStyle}>
+      <h4 style={titleStyle} className='center'>Add a New Keg to Inventory</h4>
+      <form className='container' onSubmit={handleSubmission}>
+        <label>Beer Name:
+          <input type='text' id='name' placeholder='name' ref={(input) => {_name=input;}}/>
+        </label>
+        <label>Brewer:
+          <input type='text' id='brewer' placeholder='brewer' ref={(input) => {_brewer=input;}}/>
+        </label>
+        <label>Type:
+          <input type='text' id='type' placeholder='type' ref={(input) => {_type=input;}}/>
+        </label>
+        <label>Alcohol%
+          <input type='number' id='alcohol' placeholder='alcohol' ref={(input) => {_alcohol=input;}}/>
+        </label>
+        <label>Description:
+          <input type='text' id='description' placeholder='description' ref={(input) => {_description=input;}}/>
+        </label>
+        <label>Date Added:
+          <input type='date' id='date' placeholder='date' ref={(input) => {_dateTapped=input;}}/>
+        </label>
+        <label>Add Image:
+          <input type='text' id='img' placeholder='image url' ref={(input) => {_img=input;}}/>
+        </label>
+        <button style={buttonStyle} className='button btn-large '>Add Keg</button>
       </form>
     </div>
 
