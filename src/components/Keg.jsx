@@ -1,34 +1,41 @@
 import React from 'react';
-import { Column } from 'simple-flexbox';
 import PropTypes from 'prop-types';
 
-function Option (props) {
+function Keg (props) {
   var imgStyle = {
     height: '',
     minWidth: '100',
     maxWidth: '200'
   };
-  var optionCardStyle = {
+  var kegCardStyle = {
     borderRadius: '25px',
     backgroundColor: '#ececeb',
-    padding: '20'
+    padding: '20',
+    height: '300',
+    width: '250',
+    
   };
+  console.log(props.kegId);
 
   return(
-    <Column flexGrow={1} horizontal='center'>
-      <div style={optionCardStyle} className="center container">
-        <h2>{props.name}</h2>
+    
+      <div onClick={() => {props.onSelectingKeg(props.kegId);}} style={kegCardStyle} className="center container">
+        <h4>{props.name}</h4>
         <img style={imgStyle} src={props.img}></img>
         <p>{props.description}</p>
+        <p>{props.alcohol}</p>
+        <p>{props.contents}</p>
+        <p>{props.description}</p>
+        
       </div>
-    </Column>
+    
   );
 }
 
-Option.propTypes ={
+Keg.propTypes ={
   name: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string
 };
 
-export default Option;
+export default Keg;

@@ -6,18 +6,20 @@ const NewKegForm = (props) => {
   let _name = null;
   let _type = null;
   let _brewer = null;
+  let _alcohol = null;
   let _description = null;
   let _dateTapped = null;
   let _img = null;
   const handleSubmission = (event) => {
     event.preventDefault();
-    props.onKegCreation({name: _name.value, type:_type.value, brewer: _brewer, description: _description.value, dateTapped: _dateTapped.value, img: _img.value, id: v4() });
+    props.onKegCreation({name: _name.value, type:_type.value, alcohol: _alcohol.value, brewer: _brewer, description: _description.value, contents: 1000, dateTapped: _dateTapped.value, img: _img.value, id: v4() });
     _name = '';
     _description = '';
     _type = '';
+    _brewer = '';
+    _alcohol = '';
     _dateTapped = '';
-    _img = '';
-        
+    _img = '';    
   };
   return (
     <div>
@@ -28,6 +30,8 @@ const NewKegForm = (props) => {
         <input type='text' id='brewer' placeholder='brewer' ref={(input) => {_brewer=input;}}/>
         <label for='type'>Type:</label>
         <input type='text' id='type' placeholder='type' ref={(input) => {_type=input;}}/>
+        <label for='alcohol'>Alcohol%</label>
+        <input type='number' id='alcohol' placeholder='alcohol' ref={(input) => {_alcohol=input;}}/>
         <label for='description'>Description:</label>
         <input type='text' id='description' placeholder='description' ref={(input) => {_description=input;}}/>
         <label for='description'>Date Added:</label>

@@ -6,8 +6,10 @@ import Keg from './Keg';
 function KegList(props) {
   const flexStyle={
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    flexWrap: 'wrap'
   };
+  console.log(props.kegList)
   return (
     <div style={flexStyle}>
       {Object.keys(props.kegList).map((kegId) => { const keg = props.kegList[kegId];
@@ -20,8 +22,8 @@ function KegList(props) {
             dateTapped
             img={keg.img}
             contents={keg.contents}
-            key={keg.id}
-            onSelectingKeg={this.onSelectingKeg}/>
+            kegId={kegId}
+            onSelectingKeg={props.onSelectingKeg}/>
         );})};        
     </div>
   );
